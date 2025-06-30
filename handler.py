@@ -9,6 +9,8 @@ processor = None
 
 def load_model():
     global model, processor
+    if model is None:
+        model = carregar_modelo()
     model_id = "Qwen/Qwen2.5-VL-7B-Instruct"
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForVision2Seq.from_pretrained(
